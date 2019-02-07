@@ -8,8 +8,11 @@
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  rectMode(CENTER);
 }
 
 function draw() {
-  background(220);
+  background(0);
+  fill(250, 0, 0);
+  rect(mouseX, 200, 400, 400)
 }
