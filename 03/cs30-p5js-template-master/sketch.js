@@ -6,29 +6,23 @@
 // - describe what you did to take this project "above and beyond"
 
 
-let x, y;
-let xSpeed, ySpeed;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  x = width/2;
-  y = height/2;
-  xSpeed = random(-3, 3);
-  ySpeed = random(-3, 3);
+  
+
 }
 
 function draw() {
   background(0,0,0);
-  ellipse(x, y, 25, 25);
-  x += xSpeed;
-  y += ySpeed;
-  fill(random(255), random(255), random(255));
+
   
 }
 
-function mousePressed(){
-  //fill(255,0,0);
-  xSpeed = random(-10, 10);
-  ySpeed = random(-10, 10);
+function KeyTyped(a){
+  rect(50,75);
+  
+
 }
 
