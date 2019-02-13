@@ -16,7 +16,7 @@ function draw() {
   keyTyped();
   textSize(50);
   textFont("Georgia");
-  text("Conner Woods", 10, 30);
+  text("Conner Woods", 10, 50);
   fill(random(255),random(255),random(255));
 }
 
@@ -33,4 +33,8 @@ function keyTyped() {
     fill(random(255), random(255), random(255));
     quad(mouseX, mouseY, mouseX - 25, mouseY + 25, mouseX, mouseY +50, mouseX +25, mouseY + 25);
   }
+  if (key === " "){
+    background(0);
+  }
+  triangle(random(0,2000), random(0,1000), random(0,1000), random(0,2000), random(0,1000), random(0,1000));
 }
