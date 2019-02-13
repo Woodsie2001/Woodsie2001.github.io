@@ -12,7 +12,7 @@ function setup() {
 }
 
 function draw() {
-  background(0,0,0);
+  background(255,255,255);
   keyTyped();
   textSize(50);
   textFont("Georgia");
@@ -24,6 +24,9 @@ function keyTyped() {
   if (key === "a") {
     fill(random(255), random(255), random(255));
     rect(mouseX,mouseY, 150, 200);
+    if (mouseIsPressed) {
+      rect(mouseX, mouseY, 150, 200);
+    }
   }
   if (key === "s"){
     fill(random(255), random(255), random(255));
