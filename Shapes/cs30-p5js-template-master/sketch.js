@@ -13,12 +13,13 @@ function setup() {
 
 function draw() {
   //background(255,255,255);
-  keyTyped();
   textSize(50);
   textFont("Georgia");
   text("Conner Woods", 10, 50);
-  fill(random(255),random(255),random(255));
   //Creating My Name
+  fill(random(255),random(255),random(255));
+  triangle(random(0,2000), random(0,1000), random(0,1000), random(0,2000), random(0,1000), random(0,1000));
+  //Creating Random Triangles
 
 }
 
@@ -49,7 +50,6 @@ function keyTyped() {
     //Wiping Screen
 
   }
-  triangle(random(0,2000), random(0,1000), random(0,1000), random(0,2000), random(0,1000), random(0,1000));
-  //Creating Random Triangles
+  
 
 }
