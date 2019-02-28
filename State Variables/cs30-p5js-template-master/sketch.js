@@ -6,6 +6,11 @@
 // - describe what you did to take this project "above and beyond"
 
 let quad = 1;
+let quad1Color = fill(0);
+let quad2Color = fill(0);
+let quad3Color = fill(0);
+let quad4Color = fill(0); 
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -24,22 +29,24 @@ function determinequad(){
 
 function drawSquare(){
   if (quad === 1){
-    rect(0, 0, width/2, height/2);
     fill (0);
   }
   if (quad === 2){
-    rect(width/2, 0 , width/2, height/2);
     fill(0);
   }
   if (quad === 3){
-    rect(0, height/2, width/2, height/2);
     fill(0);
   }
   if (quad === 4){
-    rect(width/2, height/2, width/2, height/2);
     fill(0);
+    
   }
 }
+
+rect(0, 0, width/2, height/2);
+rect(width/2, 0 , width/2, height/2);
+rect(0, height/2, width/2, height/2);
+rect(width/2, height/2, width/2, height/2);
 
 function draw() {
   background(255);
@@ -47,6 +54,7 @@ function draw() {
   line(windowWidth/2, 0, windowWidth/2, windowHeight);
   determinequad();
   drawSquare();
+  
 }
 
 
