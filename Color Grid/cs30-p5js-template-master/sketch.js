@@ -27,7 +27,7 @@ function mousePressed(){
 function colorGrid(){
   for (x = 0; x <= width; x += rectSize){
     for (y = 0; y <= height; y += rectSize){
-      fill(random(255), random(255), random(255));
+      fill(random(100, 150), 0, random(200, 255));
       rect(x, y, rectSize, rectSize);
       //creating squares  
     }
