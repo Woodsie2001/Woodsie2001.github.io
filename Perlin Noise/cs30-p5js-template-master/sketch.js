@@ -5,7 +5,13 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-let xoff = 0;
+function generateTerrain(){
+  for (let x = 0; x <= width; x += random){
+    for (let y = 0; y <= height; y += random){
+      rect(10, 10, x, y);
+    }
+  }
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -13,10 +19,5 @@ function setup() {
 
 function draw() {
   background(220);
-
-  let x = map(noise(xoff), 0, 1, 0, width);
-
-  xoff += 0.001;
-
-  ellipse(x, 200, 24, 24);
+  generateTerrain();
 }
