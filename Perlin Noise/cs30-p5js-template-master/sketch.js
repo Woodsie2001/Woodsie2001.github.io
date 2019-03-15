@@ -1,36 +1,41 @@
-// Project Title
-// Your Name
-// Date
+// Perlin Noise Terrain Generation
+// Conner Woods
+// March 15th 
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - I made my random terrain slide across the screen 
 
 let inc = 0.01;
 let start = 0;
+//Variables
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  generateTerrain();
   noStroke();
 }
 
 function draw() {
   generateTerrain();
+  //calling function
 }
 
-
-function generateTerrain() {
-
-  let yOff = 0;
-  let xoff = start;
-  for (let x = 0; x < width; x++) {
-    let y = noise(xoff) * height;
-    vertex(x,y);
-    xoff += inc;
-
-    fill(0);
-    //fill(0);
-    rect(x, y, 0.1, height - y); x += 1;
+function generateTerrain(){
+  background(173, 216, 255);
+  stroke(255);
+  noFill();
+  beginShape();
+  //Start
+  let xOff = start;
+  let x = 0;
+  for (let x = 0; x <= width; x++) {
+    stroke(255);
+    let y = noise(xOff) * height;
+    rect(x, y, 1, height);
+    xOff += inc;
+    //Drawing Stuff 
   }
-  start + inc;
+  endShape();
+  //End
+  start += inc;
+  //Sliding across screen
 }
