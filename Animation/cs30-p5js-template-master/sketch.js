@@ -3,7 +3,7 @@
 // March 26th
 //
 // Extra for Experts:
-// - I Made each direction have its own animation 
+// - I Made each direction have its own animation, you control Yoshi with the arrow keys 
 
 let Speed = 0;
 let pinImages = [];
