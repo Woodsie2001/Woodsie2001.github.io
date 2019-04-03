@@ -30,7 +30,7 @@ class Ball{
   display(){
     ellipseMode(CENTER);
     ellipse(this.x, this.y, this.size, this.size);
-    //fill(random(255) ,random(255), random(255));
+    fill(random(255) ,random(255), random(255));
   }
   move(){
     this.x += this.xSpeed;
@@ -40,9 +40,8 @@ class Ball{
     if (this.x < 0 || this.x > width){
       this.xSpeed *= -1;
     }
-    if (this.y > height){
-      this.ySpeed *= -0.92;
-      this.y = height;
+    if (this.y < 0 || this.y > height){
+      this.ySpeed *= -1;
     } 
   }
   mouseOver(){
@@ -53,5 +52,5 @@ class Ball{
     else{
       fill(255);
     }
-  }
+  } 
 }
