@@ -43,6 +43,7 @@ function setup() {
 function draw() {
   frameRate(60);
   background(255);
+  
   image(pinImages[counter], Speed, Speed1, 100, 200);
 
   if (key === "ArrowRight"){
