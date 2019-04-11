@@ -7,7 +7,6 @@
 
 let x,y;
 
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
   x = width/2;
@@ -32,5 +31,6 @@ function draw() {
   for (let z = 0; z < 60; z ++){
     horizontal();
     vertical();
+    fill(random(255), random(255), random(255));
   }
 }
