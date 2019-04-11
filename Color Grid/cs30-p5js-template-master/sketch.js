@@ -19,6 +19,9 @@ function mousePressed(){
   }
   if (mouseButton === RIGHT){
     rectSize = rectSize - 2;
+    if (rectSize < 1){
+      rectSize = 10;
+    }
     colorGrid();
     //making squares smaller
   }
