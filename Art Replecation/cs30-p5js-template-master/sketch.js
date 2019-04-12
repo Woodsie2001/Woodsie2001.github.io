@@ -17,6 +17,7 @@ function setup() {
 function horizontal(){
   let newx = random(width);
   line(x, y, newx, y);
+  //line(x, y, newx, y);
   x = newx;
 }
 
