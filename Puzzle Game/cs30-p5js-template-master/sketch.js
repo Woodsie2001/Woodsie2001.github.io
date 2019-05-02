@@ -13,11 +13,12 @@ const NUM_COLS = 5;
 let rectWidth, rectHeight;
 // Setting Variables
 
-let gridData = [[0,   255, 0,   255, 0],
-               [ 255, 0,   255, 0,   255],
-               [ 0,   255, 0,   255, 0],
-               [ 255, 0,   255, 0,   255]];
+let gridData = [[0, 255, 0, 255, 0],
+               [ 255, 0, 255, 0, 255],
+               [ 0, 255, 0, 255, 0],
+               [ 255, 0, 255, 0, 255]];
                // Making Grid
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -53,9 +54,9 @@ function flip(col, row) {
 
 function ifWin() {
   if (winB === 20 || winW === 20) {
-    textSize(100);
+    textSize(150);
     textAlign(CENTER);
-    fill(255, 0, 0);
+    fill(0, 255, 0);
     text("You Win!!", width/2, height/2);
     //Determining if you win
   }
