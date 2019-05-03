@@ -1,43 +1,65 @@
 // Puzzle Game
 // Conner Woods
-// May 1st, 2019
+// May 3rd, 2019
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - This was not worth 5 points hahahaha.
 
-let winB = 10;
-let winW = 10;
+let randomNum;
+let winB = 0;
+let winW = 0;
 let current_col, current_row;
 const NUM_ROWS = 4;
 const NUM_COLS = 5;
-let rectWidth, rectHeight;
-// Setting Variables
+let rectWidth, rectHeight;x
+let gridData = [[ , , , , ],
+               [ , , , , ],
+               [ , , , , ],
+               [ , , , , ]];
+//Setting my variables
 
-let gridData = [[0, 255, 0, 255, 0],
-               [ 255, 0, 255, 0, 255],
-               [ 0, 255, 0, 255, 0],
-               [ 255, 0, 255, 0, 255]];
-               // Making Grid
+function randomNumberizer() {
+  //Picking random black or white values
+  randomNum = int(random(0,2));
+  if (randomNum === 1) {
+    winW += 1;
+    return 255;
+  }
+  else {
+    winB += 1;
+    return 0;
+  }
+}
 
-               
+function randomizeBoard() {
+  //Creating random rectangles
+  for (let x = 0; x < NUM_COLS; x++) {
+    for (let y = 0; y < NUM_ROWS; y++) {
+      gridData[y][x] = randomNumberizer();
+    }
+  }
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rectWidth = windowWidth / NUM_COLS;
   rectHeight = windowHeight / NUM_ROWS;
-  //Settting Size
+  randomizeBoard();
+  //Calling function
 }
 
 function drawGrid() {
+  //Creating rectangles for grid
   for (let y = 0; y < NUM_ROWS; y++) {
     for (let x = 0; x < NUM_COLS; x++) {
       fill(gridData[y][x]);
       rect(x * rectWidth, y * rectHeight, rectWidth, rectHeight);
-      //Drawing Grid
     }
   }
 }
 
 function flip(col, row) {
+  //Flipping colors
   if (col >= 0 && col < NUM_COLS && row >= 0 && row < NUM_ROWS) {
     if (gridData[row][col] === 0) {
       gridData[row][col] = 255;
@@ -53,40 +75,38 @@ function flip(col, row) {
 }
 
 function ifWin() {
+  //Determining if you win
   if (winB === 20 || winW === 20) {
-    textSize(150);
+    textSize(100);
     textAlign(CENTER);
-    fill(0, 255, 0);
+    fill(random(255), random(255), random(255));
     text("You Win!!", width/2, height/2);
-    //Determining if you win
   }
 }
 
 function determineActiveSquare() {
+  //Where mouse is
   current_col = int(mouseX / rectWidth);
   current_row = int(mouseY / rectHeight);
-  print(current_col, current_row);
-  //Finding the mouse
 }
 
 function draw() {
+  //Calling functions
   drawGrid();
   determineActiveSquare();
   ifWin();
-  //Declaring functions
 }
 
 function mousePressed() {
+  //Left click or right click?
   if (mouseButton === LEFT) {
     flip(current_col + 1, current_row);
     flip(current_col - 1, current_row);
     flip(current_col, current_row + 1);
     flip(current_col, current_row - 1);
     flip(current_col, current_row);
-    //Plus Sign
   }
   if (mouseButton === RIGHT) {
     flip(current_col, current_row);
-    //Cheater Cheater
   }
 }
