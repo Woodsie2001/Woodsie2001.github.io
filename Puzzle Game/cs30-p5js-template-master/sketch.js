@@ -19,7 +19,7 @@ let gridData = [[0, 255, 0, 255, 0],
                [ 255, 0, 255, 0, 255]];
                // Making Grid
 
-
+               
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rectWidth = windowWidth / NUM_COLS;
