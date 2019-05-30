@@ -8,19 +8,19 @@ function setup() {
 	noStroke();
 }
 
-function keyPressed() {
-	if (key === "q"){
-		for (i = 0; i < 1000; i++) {
-			p.push(new Particle);
-		}
-	}
-}
-
 function draw() {
 	background(0, 5);
 	for (i = 0; i < p.length; i++) {
 		p[i].show();
 		p[i].move();
+	}
+}
+
+function keyPressed() {
+	if (key === "q"){
+		for (i = 0; i < 1000; i++) {
+			p.push(new Particle);
+		}
 	}
 }
 
@@ -35,7 +35,7 @@ class Particle {
 
 	show() {
 		fill(this.color);
-		ellipse(this.x, this.y, 5, 5);
+		ellipse(this.x, this.y, 5, 6);
 	}
 
 	move() {
@@ -43,4 +43,3 @@ class Particle {
 		this.y = this.y + this.ySpeed;
 	}
 }
-
