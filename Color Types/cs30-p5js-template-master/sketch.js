@@ -24,10 +24,7 @@ function drawRowCustom(yPos){
 
 function drawRowHSB(yPos){
   colorMode(HSB, 360);
-  for (let x = 0; x < width; x += rectWidth){
     fill( x % 360 , 280 , 330 );
-    rect(x, yPos, rectWidth, rectHeight);
-  }
 }
 
 function drawRowRGB(yPos){

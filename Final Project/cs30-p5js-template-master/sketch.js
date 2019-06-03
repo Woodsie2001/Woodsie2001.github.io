@@ -2,10 +2,14 @@
 // Conner
 
 let p = [];
+let repeller;
+let ParticleSystem;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	noStroke();
+	ps = new ParticleSystem(new PVector(width/2, 50));
+	repeller = new Repeller(width/2-20, height/2-20);
 }
 
 function draw() {
@@ -14,9 +18,18 @@ function draw() {
 		p[i].show();
 		p[i].move();
 	}
+	ps.addParticle();
+	PVectorgravity = new PVector(0, 0.1);
+	ps.applyForce(gravity);
+	ps.applyRepeller(repeller);
+	ps.run();
+	repeller.display();
 }
 
-
+function drawHSB(yPos){
+	colorMode(HSB, 360);
+	  fill( x % 360 , 280 , 330 );
+  }
 
 function keyPressed() {
 	if (key === "q"){
@@ -29,16 +42,10 @@ function keyPressed() {
 			p.push(new Particle1);
 		}
 	}
-	if (key === "e"){
-		for (i = 0; i < 500; i ++){
-			p.push(new Particle2);
-		}
-	}
-}
 
 class Particle {
 	constructor() {
-		this.color = color(random(255), random(255), random(255))
+		this.color = drawHSB
 		this.x = width/2;
 		this.y = height/2;
 		this.xSpeed = random(-5, 5);
@@ -58,7 +65,7 @@ class Particle {
 
 class Particle1 {
 	constructor() {
-		this.color = color(random(255), random(255), random(255))
+		this.color = drawHSB
 		this.x = width/2;
 		this.y = height/2;
 		this.xSpeed = random(-5, 5);
@@ -67,7 +74,7 @@ class Particle1 {
 
 	show() {
 		fill(this.color);
-		rect(this.x, this.y, 40, 40);
+		rect(this.x, this.y, 10, 10);
 	}
 
 	move() {
@@ -75,23 +82,4 @@ class Particle1 {
 		this.y = this.y + this.ySpeed;
 	}
 }
-
-class Particle2 {
-	constructor() {
-		this.color = color(random(255), random(255), random(255))
-		this.x = width/2;
-		this.y = height/2;
-		this.xSpeed = random(-5, 5);
-		this.ySpeed = random(-5, 5);
-	}
-
-	show() {
-		fill(this.color);
-		(this.x, this.y, 40, 40);
-	}
-
-	move() {
-		this.x = this.x + this.xSpeed;
-		this.y = this.y + this.ySpeed;
-	}
 }
