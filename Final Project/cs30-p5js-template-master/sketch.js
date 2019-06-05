@@ -2,50 +2,64 @@
 // Conner
 
 let p = [];
-let repeller;
-let ParticleSystem;
+let radio; 
+let slider1;
+let slider2;
+let slider3;
+
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
 	noStroke();
-	ps = new ParticleSystem(new PVector(width/2, 50));
-	repeller = new Repeller(width/2-20, height/2-20);
+	createCanvas(windowWidth, windowHeight);
+	radio = createRadio();
+	radio.option('Circle');
+	radio.option('Square');
+	radio.position(50, 50);
+	radio.style('width', '55px');
+	textAlign(CENTER);
+	fill(255, 255, 255)
+
+	slider1 = createSlider(0, 255, 120);
+	slider1.position(25, 150);
+	slider1.style('width', '180px');
+
+	slider2 = createSlider(0, 255, 120);
+	slider2.position(25,200);
+	slider2.style('width', '180px');
+
+	slider3 = createSlider(0, 255, 120);
+	slider3.position(25, 250);
+	slider3.style('width', '180px');
+	
 }
 
 function draw() {
 	background(0, 5);
-	for (i = 0; i < p.length; i++) {
+	for (let i = 0; i < p.length; i++) {
 		p[i].show();
 		p[i].move();
 	}
-	ps.addParticle();
-	PVectorgravity = new PVector(0, 0.1);
-	ps.applyForce(gravity);
-	ps.applyRepeller(repeller);
-	ps.run();
-	repeller.display();
 }
 
-function drawHSB(yPos){
-	colorMode(HSB, 360);
-	  fill( x % 360 , 280 , 330 );
-  }
 
 function keyPressed() {
-	if (key === "q"){
-		for (i = 0; i < 500; i++) {
-			p.push(new Particle);
+	if (key === " "){
+		if (radio.value() === 'Circle'){
+			for (let i = 0; i < 500; i++) {
+				p.push(new Particle());
+			}
+		}
+		if (radio.value() === 'Square'){
+			for (let i = 0; i < 500; i ++){
+				p.push(new Particle1());
+			}
 		}
 	}
-	if (key === "w"){
-		for (i = 0; i < 500; i++) {
-			p.push(new Particle1);
-		}
-	}
+}
 
 class Particle {
-	constructor() {
-		this.color = drawHSB
+	constructor(f_) {
+		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = width/2;
 		this.y = height/2;
 		this.xSpeed = random(-5, 5);
@@ -65,7 +79,7 @@ class Particle {
 
 class Particle1 {
 	constructor() {
-		this.color = drawHSB
+		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = width/2;
 		this.y = height/2;
 		this.xSpeed = random(-5, 5);
@@ -81,5 +95,4 @@ class Particle1 {
 		this.x = this.x + this.xSpeed;
 		this.y = this.y + this.ySpeed;
 	}
-}
 }
