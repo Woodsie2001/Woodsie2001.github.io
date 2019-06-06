@@ -12,8 +12,9 @@ function setup() {
 	noStroke();
 	createCanvas(windowWidth, windowHeight);
 	radio = createRadio();
-	radio.option('Circle');
-	radio.option('Square');
+	radio.option('Circles');
+	radio.option('Squares');
+	radio.style("color", "white");
 	radio.position(50, 50);
 	radio.style('width', '55px');
 	textAlign(CENTER);
@@ -44,12 +45,12 @@ function draw() {
 
 function keyPressed() {
 	if (key === " "){
-		if (radio.value() === 'Circle'){
+		if (radio.value() === 'Circles'){
 			for (let i = 0; i < 500; i++) {
 				p.push(new Particle());
 			}
 		}
-		if (radio.value() === 'Square'){
+		if (radio.value() === 'Squares'){
 			for (let i = 0; i < 500; i ++){
 				p.push(new Particle1());
 			}
