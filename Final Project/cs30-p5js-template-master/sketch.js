@@ -6,11 +6,12 @@ let radio;
 let slider1;
 let slider2;
 let slider3;
-
+let counter;
 
 function setup() {
 	noStroke();
 	createCanvas(windowWidth, windowHeight);
+
 	radio = createRadio();
 	radio.option('Circles');
 	radio.option('Squares');
@@ -25,7 +26,7 @@ function setup() {
 	slider1.style('width', '180px');
 
 	slider2 = createSlider(0, 255, 120);
-	slider2.position(25,200);
+	slider2.position(25, 200);
 	slider2.style('width', '180px');
 
 	slider3 = createSlider(0, 255, 120);
@@ -46,7 +47,7 @@ function draw() {
 function keyPressed() {
 	if (key === " "){
 		if (radio.value() === 'Circles'){
-			for (let i = 0; i < 500; i++) {
+			for (let i  = 0; i < 500; i++) {
 				p.push(new Particle());
 			}
 		}
@@ -59,7 +60,7 @@ function keyPressed() {
 }
 
 class Particle {
-	constructor(f_) {
+	constructor() {
 		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = width/2;
 		this.y = height/2;
@@ -86,7 +87,6 @@ class Particle1 {
 		this.xSpeed = random(-5, 5);
 		this.ySpeed = random(-5, 5);
 	}
-
 	show() {
 		fill(this.color);
 		rect(this.x, this.y, 10, 10);
