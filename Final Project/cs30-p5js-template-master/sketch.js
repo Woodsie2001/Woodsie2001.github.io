@@ -7,6 +7,7 @@ let slider1;
 let slider2;
 let slider3;
 let input;
+//Setting my Variables 
 
 function setup() {
 	noStroke();
@@ -22,21 +23,26 @@ function setup() {
 	radio.style('width', '55px');
 	textAlign(CENTER);
 	fill(255, 255, 255)
+	//Creating my shape option
 
 	slider1 = createSlider(0, 255, 120);
 	slider1.position(25, 275);
 	slider1.style('width', '180px');
+	//Creating red value slider
 
 	slider2 = createSlider(0, 255, 120);
 	slider2.position(25, 325);
 	slider2.style('width', '180px');
+	//Creating green value slider
 
 	slider3 = createSlider(0, 255, 120);
 	slider3.position(25, 375);
 	slider3.style('width', '180px');
+	//Creating blue value slider
 
 	input = createInput();
 	input.position(25, 430);
+	//Creating Input 
 }
 
 function draw() {
@@ -44,6 +50,7 @@ function draw() {
 		for (let i = 0; i < p.length; i++) {
 			p[i].show();
 			p[i].move();
+			//Shade effect when program starts 
 		}
 	textAlign(CENTER);
 	textSize(15);
@@ -51,11 +58,13 @@ function draw() {
 	text("Green Value", 75, 360);
 	text("Blue Value", 75, 410);
 	text("Num Value", 75, 475);
+	//Naming Sliders and Input 
 }
 
 
 function keyPressed() {
 	let Num = input.value();
+	//Setting Num variable as my Input Number 
 	if (key === " "){
 		if (Num > 0){
 			if (radio.value() === 'Circles'){
@@ -79,6 +88,9 @@ function keyPressed() {
 				}
 			}
 		}
+
+		//Determining which one is selected 
+
 		else{
 			if (radio.value() === 'Circles'){
 				for (let i  = 0; i < 500; i++) {
@@ -101,10 +113,14 @@ function keyPressed() {
 				}
 			}
 		}
+
+		//Determining which one is selected
+
 	}
 }
 
 class Particle {
+	//Making First Class
 	constructor() {
 		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = mouseX;
@@ -125,6 +141,7 @@ class Particle {
 }
 
 class Particle1 {
+	//Making Second Class
 	constructor() {
 		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = mouseX;
@@ -144,6 +161,7 @@ class Particle1 {
 }
 
 class Particle2 {
+	//Making Third Class
 	constructor() {
 		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = mouseX;
@@ -165,6 +183,7 @@ class Particle2 {
 }
 
 class Particle3 {
+	//Making Fourth Class
 	constructor() {
 		this.color = color(slider1.value(), slider2.value(), slider3.value());
 		this.x = mouseX;
