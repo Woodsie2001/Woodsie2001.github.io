@@ -1,3 +1,6 @@
+// Final Project 
+// Conner Woods
+
 let video;
 const GRID_SPACING = 10;
 
